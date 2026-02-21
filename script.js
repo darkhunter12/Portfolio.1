@@ -300,29 +300,11 @@ window.addEventListener('orientationchange', setVH);
 // ===== Code Window Animation =====
 const codeWindow = document.querySelector('.code-content code');
 if (codeWindow) {
-    const codeText = codeWindow.innerHTML;
-    codeWindow.innerHTML = '';
+    // Just leave the code as is - no animation needed for now
+    // The code will display properly without the typing effect
     
-    let i = 0;
-    function typeCode() {
-        if (i < codeText.length) {
-            codeWindow.innerHTML += codeText.charAt(i);
-            i++;
-            setTimeout(typeCode, 20);
-        }
-    }
-    
-    // Start code animation when visible
-    const codeObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                setTimeout(typeCode, 500);
-                codeObserver.unobserve(entry.target);
-            }
-        });
-    });
-    
-    codeObserver.observe(document.querySelector('.code-window'));
+    // If you want typing animation, we'll need to do it differently
+    // For now, just let the code display normally
 }
 
 // ===== Prevent FOUC (Flash of Unstyled Content) =====
@@ -335,7 +317,7 @@ console.log(`
 %c👋 Hello there!
 %cLooking for something? 
 %cCheck out my GitHub: https://github.com/darkhunter12
-%cOr reach out: abhisheksaroj0123@gmail.com
+%cOr reach out: sabu.email@example.com
 `, 
 'font-size: 20px; font-weight: bold; color: #00f5ff;',
 'font-size: 14px; color: #b0b8d4;',
